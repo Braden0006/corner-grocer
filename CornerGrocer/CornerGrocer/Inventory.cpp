@@ -5,24 +5,27 @@
 #include <string>
 #include <sstream>
 
+void Inventory::UserInputFile() {
+	string inputFile;
+
+	cout << "Enter the name of the text file: ";
+
+	cin >> inputFile;
+
+	userFile = inputFile;
+}
+
 void Inventory::MenuTwo() {
 	ifstream inFS;
 	ofstream outFS;
 
-	string inputFile;
-
 	string itemName;
 
-	cout << "Enter the name of the text file: ";
-	cout << endl;
-
-	cin >> inputFile;
-
-	inFS.open(inputFile);
+	inFS.open(userFile);
 
 	// Checks to see if the file could not be opened 
 	if (!inFS.is_open()) {
-		cout << "Could not open file " << inputFile << endl;
+		cout << "Could not open file " << userFile << endl;
 	}
 
 	while (getline(inFS, itemName)) {
