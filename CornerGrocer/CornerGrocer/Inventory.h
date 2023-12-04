@@ -1,15 +1,15 @@
 #include <string>
-#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 class Inventory
 {
 public:
-	void InventoryList();
+	void MenuTwo();
 	void Menu();
 
 private:
-	vector<string> items;
+	unordered_map<string, int> itemFrequency;
 };
 

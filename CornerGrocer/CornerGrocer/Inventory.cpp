@@ -1,15 +1,20 @@
 #include "Inventory.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
-void Inventory::InventoryList() {
+void Inventory::MenuTwo() {
 	ifstream inFS;
 	ofstream outFS;
 
 	string inputFile;
 
 	string itemName;
+
+	cout << "Enter the name of the text file: ";
+	cout << endl;
 
 	cin >> inputFile;
 
@@ -20,12 +25,13 @@ void Inventory::InventoryList() {
 		cout << "Could not open file " << inputFile << endl;
 	}
 
-	inFS >> itemName;
+	while (getline(inFS, itemName)) {
+		istringstream iss(itemName);
+		string item;
 
-	while (!inFS.fail()) {
-		items.push_back(itemName);
-
-		inFS >> itemName;
+		while (iss >> item) {
+			itemFrequency[item]++;
+		}
 	}
 
 	inFS.close();
@@ -34,6 +40,10 @@ void Inventory::InventoryList() {
 
 	if (!outFS.is_open()) {
 		cout << "Could not open file frequency.dat" << endl;
+	}
+
+	for (const auto& pair : itemFrequency) {
+		outFS << pair.first << ": " << pair.second << endl;
 	}
 
 	outFS.close();

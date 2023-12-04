@@ -6,7 +6,7 @@ int main()
 {
 	Inventory items1;
 
-	items1.Menu();
+	items1.MenuTwo();
 
 	return 0;
 }
