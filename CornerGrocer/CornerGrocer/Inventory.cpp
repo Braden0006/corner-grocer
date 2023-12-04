@@ -38,3 +38,16 @@ void Inventory::InventoryList() {
 
 	outFS.close();
 }
+
+void Inventory::Menu() {
+	string userItem;
+
+	cout << "Please select an option below: " << endl;
+	cout << endl;
+	cout << "Option 1 - 1" << endl;
+	cout << "Option 2 - 2" << endl;
+	cout << "Option 3 - 3" << endl;
+	cout << endl;
+
+	cin >> userItem;
+}
