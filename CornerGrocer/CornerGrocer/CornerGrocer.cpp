@@ -7,7 +7,7 @@ int main()
 	Inventory items1;
 
 	items1.UserInputFile();
-	items1.MenuTwo();
+	items1.Menu();
 
 	return 0;
 }
